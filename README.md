@@ -1,365 +1,195 @@
-<!-- LOGOTIPO DO PROJETO -->
-<div style="display: flex; justify-content: center;">
-   <a href="https://github.com/SEU-USUARIO/SEU-PROJETO">
-     <img src="docs/figures/logo.png" alt="Logo" width="200" height="100">
-   </a>
-</div>
-
-<h3 align="center">NomeDoProjeto</h3>
-
-<div style="display: flex; justify-content: center;">
-  <a href="https://doi.org/SEU-DOI">
-    <img src="https://zenodo.org/badge/SEU_BADGE.svg" alt="DOI">
-  </a>
-</div>
-
-<p align="center">
- Uma descrição curta e genérica do projeto. Substitua por um resumo real quando usar este template.
- <br />
- <a href="https://github.com/SEU-USUARIO/SEU-PROJETO"><strong>Explore os documentos »</strong></a>
- <br />
- <br />
- <a href="https://github.com/SEU-USUARIO/SEU-PROJETO">Ver demonstração</a>
- ·
- <a href="https://github.com/SEU-USUARIO/SEU-PROJETO">Relatar bug</a>
- ·
- <a href="https://github.com/SEU-USUARIO/SEU-PROJETO">Solicitar recurso</a>
-</p>
-
-
-
+# Como instalar/configurar/usar o `neofetch` no `Linux Ubuntu`
 
 ## Resumo
 
-Resumo genérico do projeto. Explique o problema, o objetivo e o valor da solução em 2-4 linhas.
+Guia para instalar o `neofetch` pelos repositórios oficiais do `Ubuntu` usando `apt`, executar a ferramenta e confirmar a instalação.
 
 ## _Abstract_
 
-_Generic abstract in English. Summarize the purpose, scope, and outputs in 2-4 lines._
-
-
+_Guide to install `neofetch` from the official `Ubuntu` repositories with `apt`, run the tool, and verify the installation._
 
 ## Descrição
 
-`<nome_da_aplicacao>`
+### `neofetch`
 
-Colocar a descrição da aplicação/subaplicação aqui.
+O `neofetch` é uma ferramenta de linha de comando escrita em `Bash` que exibe informações do sistema ao lado do logotipo do sistema operacional ou de uma imagem. O projeto original está arquivado; este guia cobre a instalação do pacote disponibilizado pelos repositórios do `Ubuntu`.
 
-<!-- COMEÇANDO -->
-### Começando
+## Pré-requisitos
 
-Este template mostra como documentar a configuração local do projeto. Substitua pelos passos reais.
+- Permissão para usar `sudo`
+- Repositórios `universe` do `Ubuntu` habilitados
+- Conexão com a internet
+- `apt` funcional no sistema
 
+O pacote `neofetch` está disponível no componente `universe` em versões do `Ubuntu` que o fornecem. A disponibilidade pode variar conforme a versão do sistema.
 
+## 1. Abrir o `Terminal Emulator`
 
-### Pré-requisitos
+1. Abrir o `Terminal Emulator`. Você pode fazer isso pressionando:
 
-Lista genérica de ferramentas necessárias. Ajuste versões e remova o que não se aplica.
+    ```bash
+    Ctrl + Alt + T
+    ```
 
-* [![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+2. Certifique-se de que seu sistema esteja limpo e atualizado.
 
-* [![Anaconda](https://img.shields.io/badge/Anaconda-4.x-44A833?style=flat-square&logo=anaconda&logoColor=white)](https://www.anaconda.com/)
+    2.1 Limpar o `cache` do gerenciador de pacotes `apt`. Especificamente, ele remove todos os arquivos de pacotes (`.deb`) baixados pelo `apt` e armazenados em `/var/cache/apt/archives/`. Digite o seguinte comando:
+        
+    ```bash
+    sudo apt clean
+    ```
 
-* [![Git](https://img.shields.io/badge/Git-2.x-F05032?style=flat-square&logo=git&logoColor=white)](https://git-scm.com/)
+    2.2 Remover pacotes `.deb` antigos ou duplicados do `cache` local. É útil para liberar espaço, pois remove apenas os pacotes que não podem mais ser baixados (ou seja, versões antigas de pacotes que foram atualizados). Digite o seguinte comando:
 
-* [![VS Code](https://img.shields.io/badge/VS%20Code-1.x-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/) ou qualquer IDE compatível
+    ```bash
+    sudo apt autoclean
+    ```
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+    2.3 Remover pacotes que foram automaticamente instalados para satisfazer as dependências de outros pacotes e que não são mais necessários. Digite o seguinte comando:
 
+    ```bash
+    sudo apt autoremove -y
+    ```
 
+    2.4 Buscar as atualizações disponíveis para os pacotes que estão instalados em seu sistema. Digite o seguinte comando e pressione `Enter`:
 
+    ```bash
+    sudo apt update
+    ```
 
-## Guia de instalação
+    2.5 **Corrigir pacotes quebrados**: Isso atualizará a lista de pacotes disponíveis e tentará corrigir pacotes quebrados ou com dependências ausentes:
 
-### Instalar o Git
+    ```bash
+    sudo apt --fix-broken install
+    ```
 
-Explique como instalar o Git ou remova esta seção se não for necessária.
+    2.6 Limpar o `cache` do gerenciador de pacotes `apt` novamente:
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+    ```bash
+    sudo apt clean
+    ```
 
+    2.7 Para ver a lista de pacotes a serem atualizados, digite o seguinte comando e pressione `Enter`:
 
+    ```bash
+    sudo apt list --upgradable
+    ```
 
-## Guia de instalação
+    2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`:
 
-### Instalar o Git
-
-Reforço do conteúdo ou seção extra. Mantenha ou remova conforme o uso do template.
-
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
-
-
-
-#### `Windows` [2]
-
-Explique como configurar SSH no Windows (ou ajuste para o provedor desejado).
-
-1. Verifique se o Git está instalado.
-2. Abra o Git Bash.
-3. Gere uma chave SSH (`ssh-keygen -t rsa -C "seu_email@exemplo.com"`).
-4. Adicione a chave no provedor (GitHub/GitLab/Bitbucket).
-
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
-
-
-
-### Atualizar pacotes `pip` e `setuptools` [3]
-
-Exemplo genérico de atualização de pacotes:
-
-1. `pip install --upgrade pip`
-2. `pip install --upgrade setuptools`
-3. `pip install --upgrade wheel`
-
-
-
-### Clonar o repositório do Git e instalar dependências
-
-#### `Linux`
-
-1. **Clone o repositório:**
-
-  - **Pelo terminal:** `git clone git@github.com:SEU-USUARIO/SEU-PROJETO.git`
-
-  - **(Ou)** baixar o `.zip` na página do GitHub
-
-  <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+    ```bash
+    sudo apt full-upgrade -y
+    ```
 
 
+## 3. Instalar o `neofetch` via `apt`
 
-#### `Windows`
+1. Habilitar o componente `universe` e atualizar a lista de pacotes:
 
-1. **Clone o repositório:**
+    ```bash
+    sudo add-apt-repository universe
+    sudo apt update
+    ```
 
-  - **Pelo terminal:** `git clone git@github.com:SEU-USUARIO/SEU-PROJETO.git`
+2. Instalar o `neofetch`:
 
-  - (Ou) baixar o `.zip` na página do GitHub
+    ```bash
+    sudo apt install neofetch -y
+    ```
 
-  <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+3. Confirmar a instalação consultando a versão:
 
+    ```bash
+    neofetch --version
+    ```
 
+## 4. Executar o `neofetch`
 
-## Como executar a aplicação
+1. Exibir as informações do sistema:
 
-### Executar a partir do `Terminal Emulator`
+    ```bash
+    neofetch
+    ```
 
-1. Exemplo genérico de execução:
+2. Consultar as opções disponíveis:
+
+    ```bash
+    neofetch --help
+    ```
+
+## 5. (Opcional) Remover o `neofetch`
+
+1. Remover o pacote, mantendo os arquivos de configuração do usuário:
+
+    ```bash
+    sudo apt remove neofetch -y
+    ```
+
+2. Para remover também os arquivos de configuração do sistema:
+
+    ```bash
+    sudo apt purge neofetch -y
+    ```
+
+## 2. Como consultar informações específicas
+
+O `neofetch` aceita opções para selecionar as informações exibidas. Por exemplo, para mostrar apenas o sistema operacional e o núcleo:
 
 ```bash
-python3 main.py --input caminho/para/arquivo --output caminho/para/saida
+neofetch --os --kernel
 ```
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+Consultar `neofetch --help` para ver as opções disponíveis na versão instalada.
 
+## Compatibilidade
 
+- A disponibilidade do pacote `neofetch` depende da versão do `Ubuntu` e dos componentes habilitados nos repositórios.
+- O pacote está no componente `universe` nas versões do `Ubuntu` que o publicam.
+- O projeto original está arquivado; atualizações do pacote dependem da manutenção nos repositórios da distribuição.
 
+## 1.1 Código completo para configurar/instalar/usar
 
-### Executar a partir da `Graphical User Interface (GUI)`
+Para instalar e executar o `neofetch` no `Linux Ubuntu` sem precisar digitar linha por linha, seguir estas etapas:
 
-1. Exemplo genérico de execução:
+1. Abrir o `Terminal Emulator`. Você pode fazer isso pressionando:
 
-```bash
-python3 scripts/app_gui.py
-```
+    ```bash
+    Ctrl + Alt + T
+    ```
 
+2. Digitar o seguinte comando e pressionar `Enter`:
 
+    ```bash
+    sudo apt clean
+    sudo apt autoclean
+    sudo apt autoremove -y
+    sudo apt update
+    sudo apt --fix-broken install
+    sudo apt clean
+    sudo apt list --upgradable
+    sudo apt full-upgrade -y
+    sudo add-apt-repository universe
+    sudo apt update
+    sudo apt install neofetch -y
+    neofetch
+    ```
 
-## Mostrar ajuda
-
-1. Exemplo genérico de ajuda:
-
-```bash
-python3 main.py --help
-```
-
-
-
-### Exemplo de Saída Esperada
-
-Exemplo genérico (substitua pelo help real do projeto):
-
-```bash
-usage: main.py [-h] --input INPUT [--output OUTPUT]
-```
-
-
-
-## O que o aplicativo faz?
-
-Describe in English, at a high level, what the application does and the main outputs.
-
-- Example capability 1
-- Example capability 2
-- Example capability 3
-
-
-
-
-## O que o aplicativo exibe como saída(s)
-
-# Relatório de Análise de Dados
-
-## 1. Introdução
-
-- Objetivo da análise: descrição genérica.
-- Descrição do conjunto de dados analisado: origem, tamanho, formato.
-- Metodologia utilizada para a análise.
-
-## 2. Estatísticas Gerais do Conjunto de Dados
-
-- Número total de variáveis.
-- Número total de registros.
-- Tipos de dados por variável.
-- Resumo da ocupação de memória.
-
-## 3. Qualidade dos Dados
-
-- Valores faltantes: contagem e percentual.
-- Valores únicos por variável.
-- Distribuição de valores nulos ou infinitos.
-- Detecção de espaços em branco no início/fim.
-
-## 4. Estatísticas Descritivas das Variáveis Numéricas
-
-- Contagem de valores válidos.
-- Média, mediana, moda.
-- Desvio padrão e variância.
-- Valor mínimo e máximo.
-- Quartis.
-
-## 5. Análise de Outliers
-
-- Critério de outliers (ex.: 1.5x IQR).
-- Variáveis com maior presença de outliers.
-
-## 6. Correlações Entre Variáveis
-
-- Matriz de correlação.
-- Variáveis altamente correlacionadas.
-
-## 7. Estatísticas de Variáveis Categóricas
-
-- Contagem de ocorrências por categoria.
-- Percentual de distribuição por categoria.
-
-## 8. Análise de Tendências Temporais (se aplicável)
-
-- Distribuição temporal dos dados.
-- Identificação de padrões sazonais.
-
-## 9. Conclusões e Próximos Passos
-
-- Resumo dos principais insights.
-- Sugestões de melhorias/transformações.
-- Próximos passos.
-
-
-## Gráficos Essenciais no Relatório
-
-- Histogramas
-- Boxplots
-- Heatmap de correlação
-- Gráfico de dispersão
-- Gráficos de barras
-- Linha do tempo (se aplicável)
-
-
-
-## 1. Função da Aplicação
-
-Descrição genérica da função principal do módulo.
-
-### 1.1 Entrada(s)
-
-1. Formatos de arquivo suportados (ex.: `.csv`, `.xlsx`).
-
-### 1.2 Saída(s)
-
-1. Descrição das saídas esperadas.
-
-
-
-## 2. Observação(ões)
-
-1. Observações gerais e boas práticas.
-2. Restrições conhecidas.
-
-
-
-# 3. Futura(s) Melhoria(s)
-
-- Lista de melhorias planejadas.
-
-
-
-<!-- LICENÇA -->
 ## Licença
 
-Distribuído sob a licença `MIT`. Consulte `LICENSE.txt` para obter mais informações.
+Este repositório inclui o arquivo `LICENSE.txt`.
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+## Contato e suporte
 
-
-
-<!-- ROTEIRO -->
-## Roteiro
-
-- [ ] Adicionar registro de alterações
-- [ ] Adicionar links de volta ao topo
-- [ ] Adicionar modelos adicionais com exemplos
-- [ ] Suporte multilíngue
-
-Consulte os problemas abertos para obter uma lista completa dos recursos propostos.
-
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
-
-
-
-
-<!-- CONTRIBUIÇÔES -->
-## Contribuições
-
-Explique como contribuir (fork, branch, PR, issues).
-
-1. Bifurque o projeto
-2. Crie sua ramificação (`git checkout -b feature/NovaFuncionalidade`)
-3. Confirme suas alterações (`git commit -m 'Describe change'`)
-4. Envie para a filial (`git push origin feature/NovaFuncionalidade`)
-5. Abra uma solicitação `pull`
-
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
-
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Agradecimentos
-
-* [Best README Template](https://github.com/othneildrew/Best-README-Template?tab=readme-ov-file)
-
-* [Choose an Open Source License](https://choosealicense.com)
-
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-
-* [Img Shields](https://shields.io)
-
-* [GitHub Pages](https://pages.github.com)
-
-* [Font Awesome](https://fontawesome.com)
-
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
-
-
-
+Para dúvidas sobre o pacote, consultar as informações do `apt` e a página do pacote do `Ubuntu`. Para informações sobre o projeto original, consultar seu repositório oficial.
 
 ## Referências
 
-[1] Fonte ou documentação relevante.
-[2] Artigo, tutorial ou manual adicional.
-[3] Outro link útil.
+[1] OPENAI. **Instalar o `neofetch` no `linux ubuntu` pelo `terminal emulator`**. Disponível em: <https://chatgpt.com/g/g-p-6980caf949648191ad6acfcdbe590f9e-instalar/c/6abbe8ac-ca84-83e9-b2f8-857c1b503669>. ChatGPT. Acessado em: 29/09/2026.
 
+[2] UBUNTU. **Neofetch (Jammy)**. Disponível em: <https://packages.ubuntu.com/jammy/neofetch>. Acessado em: 29/09/2026.
+
+[3] UBUNTU. **Neofetch (Noble)**. Disponível em: <https://manpages.ubuntu.com/manpages/noble/man1/neofetch.1.html>. Acessado em: 29/09/2026.
+
+[4] DYLANARAPS. **Neofetch**. Disponível em: <https://github.com/dylanaraps/neofetch>. Acessado em: 29/09/2026.
+
+[5] UBUNTU. **Install and manage packages**. Disponível em: <https://ubuntu.com/server/docs/how-to/software/package-management/>. Acessado em: 29/09/2026.
